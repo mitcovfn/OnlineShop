@@ -39,9 +39,9 @@ public class CategoryTestCase {
 
 		category = new Category();
 
-		category.setName("Laptop");
-		category.setDescription("Laptop description");
-		category.setImageURL("laptop.png");
+		category.setName("TV");
+		category.setDescription("TV description");
+		category.setImageURL("tv.png");
 
 		assertEquals("Successfully added a category inside the table!", true, categoryDAO.add(category));
 	}
@@ -58,9 +58,9 @@ public class CategoryTestCase {
 	@Test
 	public void testUpdateCategory() {
 		category = categoryDAO.get(2);
-		category.setName("TV");
-		category.setDescription("TV description");
-		category.setImageURL("tv.png");
+		category.setName("Laptop");
+		category.setDescription("Laptop description");
+		category.setImageURL("laptop.png");
 		category.setActive(true);
 
 		assertEquals("Successfully updated category from the table!", true, categoryDAO.update(category));
