@@ -22,6 +22,7 @@
 
 <script type="text/javascript">
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap core CSS -->
@@ -29,6 +30,9 @@
 
 <!-- Spacelab Theme-->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- DataTable-->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -74,6 +78,8 @@
 		<script src="${js}/jquery.min.js"></script>
 		<script src="${js}/popper.min.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
+		<script src="${js}/jquery.dataTables.js"></script>
+		<script src="${js}/dataTables.bootstrap.js"></script>
 		<!-- My own JavaScript -->
 		<script src="${js}/myapp.js"></script>
 
