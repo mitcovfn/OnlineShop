@@ -64,10 +64,15 @@
 			</c:if>
 
 			<!-- User clicks  AllProduct or Category -->
-			<c:if
-				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listproduct.jsp"%>
 			</c:if>
+
+			<!-- User clicks single product -->
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleproduct.jsp"%>
+			</c:if>
+
 
 		</div>
 
@@ -79,7 +84,7 @@
 		<script src="${js}/popper.min.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
 		<script src="${js}/jquery.dataTables.js"></script>
-<%-- 		<script src="${js}/dataTables.bootstrap.js"></script> --%>
+		<%-- 		<script src="${js}/dataTables.bootstrap.js"></script> --%>
 		<!-- My own JavaScript -->
 		<script src="${js}/myapp.js"></script>
 
