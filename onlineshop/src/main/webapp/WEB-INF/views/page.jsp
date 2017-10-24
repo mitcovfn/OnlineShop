@@ -79,7 +79,7 @@
 		<script src="${js}/popper.min.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
 		<script src="${js}/jquery.dataTables.js"></script>
-		<script src="${js}/dataTables.bootstrap.js"></script>
+<%-- 		<script src="${js}/dataTables.bootstrap.js"></script> --%>
 		<!-- My own JavaScript -->
 		<script src="${js}/myapp.js"></script>
 

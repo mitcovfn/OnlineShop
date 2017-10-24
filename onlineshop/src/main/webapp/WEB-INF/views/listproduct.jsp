@@ -47,6 +47,7 @@
 					<table id="productListTable" class="table table-striped table-borderd">
 						<thead>
 							<tr>
+								<th></th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
@@ -56,6 +57,7 @@
 						</thead>
 						<tfoot>
 							<tr>
+								<th></th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
