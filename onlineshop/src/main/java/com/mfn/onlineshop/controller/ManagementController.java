@@ -2,6 +2,7 @@ package com.mfn.onlineshop.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import com.mfn.onlineshop.dao.CategoryDAO;
 import com.mfn.onlineshop.dao.ProductDAO;
 import com.mfn.onlineshop.entity.Category;
 import com.mfn.onlineshop.entity.Product;
+import com.mfn.onlineshop.util.FileUploadUtility;
+import com.mfn.onlineshop.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -50,7 +53,9 @@ public class ManagementController {
 
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public String handleProductSave(@Valid @ModelAttribute("product") Product mProduct, BindingResult bindingResult,
-			Model model) {
+			Model model, HttpServletRequest request) {
+		
+		new ProductValidator().validate(mProduct, bindingResult);
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("userClickManageProducts", true);
@@ -60,6 +65,10 @@ public class ManagementController {
 		}
 
 		productDAO.add(mProduct);
+		
+		if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+		}
 
 		return "redirect:/manage/products?operation=product";
 	}

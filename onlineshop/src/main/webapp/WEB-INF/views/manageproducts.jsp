@@ -21,7 +21,8 @@
 				<div class="panel-body">
 					<!-- FORM ELEMENTS -->
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/manage/products" method="POST">
+						action="${contextRoot}/manage/products" method="POST"
+						enctype="multipart/form-data">
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name">Enter Product Name: </label>
@@ -46,7 +47,7 @@
 								description: </label>
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" rows="4"
-									rplaceholder="Description" class="form-control" />
+									placeholder="Description" class="form-control" />
 								<sf:errors path="description" class="help-block" element="em" />
 							</div>
 						</div>
@@ -68,6 +69,14 @@
 								<sf:input type="number" path="quantity" id="quantity"
 									placeholder="uantity Available" class="form-control" />
 								<sf:errors path="quantity" class="help-block" element="em" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file">Select an Image: </label>
+							<div class="col-md-8">
+								<sf:input type="file" path="file" id="file" class="form-control" />
+								<sf:errors path="file" class="help-block" element="em" />
 							</div>
 						</div>
 
