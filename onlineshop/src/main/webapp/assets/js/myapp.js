@@ -115,9 +115,6 @@ $(function() {
 		}, 3000)
 	}
 
-
-	
-	
 	// data table for ADMIN--
 	var $adminProductsTable = $('#adminProductTable');
 
@@ -196,8 +193,7 @@ $(function() {
 						}
 					} ],
 
-			
-					// for activating and diactivating product
+			// for activating and diactivating product
 			initComplete : function() {
 
 				var api = this.api();
@@ -216,11 +212,16 @@ $(function() {
 						callback : function(confirmed) {
 
 							if (confirmed) {
-								bootbox.alert({
-									size : 'medium',
-									title : 'Information',
-									message : 'You are going to perform operation on product' + value
+
+								var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
+								$.post(activationUrl, function(data) {
+									bootbox.alert({
+										size : 'medium',
+										title : 'Information',
+										message : data
+									});
 								});
+
 							} else {
 								checkbox.prop('checked', !checked);
 							}
