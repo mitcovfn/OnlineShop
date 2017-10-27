@@ -187,7 +187,7 @@ $(function() {
 						mRender : function(data, type, row) {
 							var url = '';
 							url += '<a href="' + window.contextRoot + '/manage/' + data
-									+ '/product" class="btn btn-warning">';
+									+ '/products" class="btn btn-warning">';
 							url += '<span class="glyphicon glyphicon-pencil"></span></a>';
 							return url;
 						}

@@ -53,11 +53,31 @@ public class ManagementController {
 		return mv;
 	}
 
+	@RequestMapping(value = "/{id}/products", method = RequestMethod.GET)
+	public ModelAndView showEditProducts(@PathVariable("id") int id) {
+
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickManageProducts", true);
+		mv.addObject("title", "Manage Products");
+
+		Product newProduct = productDAO.get(id);
+
+		mv.addObject("product", newProduct);
+
+		return mv;
+	}
+
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public String handleProductSave(@Valid @ModelAttribute("product") Product mProduct, BindingResult bindingResult,
 			Model model, HttpServletRequest request) {
 
-		new ProductValidator().validate(mProduct, bindingResult);
+		if (mProduct.getId() == 0) {
+			new ProductValidator().validate(mProduct, bindingResult);
+		} else {
+			if (!mProduct.getFile().getOriginalFilename().equals("")) {
+				new ProductValidator().validate(mProduct, bindingResult);
+			}
+		}
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("userClickManageProducts", true);
@@ -66,7 +86,11 @@ public class ManagementController {
 			return "page";
 		}
 
-		productDAO.add(mProduct);
+		if (mProduct.getId() == 0) {
+			productDAO.add(mProduct);
+		} else {
+			productDAO.update(mProduct);
+		}
 
 		if (!mProduct.getFile().getOriginalFilename().equals("")) {
 			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
