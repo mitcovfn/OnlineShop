@@ -46,8 +46,14 @@ public class ManagementController {
 		newProduct.setActive(true);
 		mv.addObject("product", newProduct);
 
-		if (operation != null && operation.equals("product")) {
-			mv.addObject("message", "Product Saved Successfully!");
+		if (operation != null) {
+			if (operation.equals("product")) {
+				mv.addObject("message", "Product Saved Successfully!");
+			}
+			if (operation.equals("category")) {
+				mv.addObject("message", "Category added Successfully!");
+			}
+
 		}
 
 		return mv;
@@ -113,9 +119,21 @@ public class ManagementController {
 				: "You have successfully activated the product with ID " + product.getId();
 	}
 
+	@RequestMapping(value = "/category", method = RequestMethod.POST)
+	public String addNewCategory(@ModelAttribute Category category) {
+
+		categoryDAO.add(category);
+		return "redirect:/manage/products?operation=category";
+	}
+
 	@ModelAttribute("categories")
 	public List<Category> getCategories() {
 		return categoryDAO.list();
+	}
+
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
 	}
 
 }
