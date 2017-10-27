@@ -143,30 +143,7 @@
 							<th>Edit</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>4</td>
-							<td>
-								<img class="adminDataTableImg"
-									src="${contextRoot}/resources/images/PRDF8B8329263.jpg" alt="iPhone 5s">
-							</td>
-							<td>iPhone 5s</td>
-							<td>Brand</td>
-							<td>3</td>
-							<td>&#36; 5664</td>
-							<td>
-								<label class="switch">
-									<input type="checkbox" value="4">
-									<div class="slider"></div>
-								</label>
-							</td>
-							<td>
-								<a href="${contextRoot}/manage/4/product" class="btn btn-warning">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</a>
-							</td>
-						</tr>
-					</tbody>
+					
 					<tfoot>
 						<tr>
 							<th>Id</th>
@@ -196,7 +173,7 @@
 				</div>
 
 				<div class="modal-body">
-					<sf:form modelAttribute="category" action="${contextRoot}/manage/category"
+					<sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/manage/category"
 						method="POST" class="form-horizontal">
 						<div class="form-group">
 							<label form="cat_name" class="control-label col-md-4">Category Name</label>
