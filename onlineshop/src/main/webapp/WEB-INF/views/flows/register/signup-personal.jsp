@@ -15,7 +15,8 @@
 
 				<div class="panel-body">
 					<!-- FORM ELEMENTS -->
-					<sf:form class="form-horizontal" id="registerForm" modelAttribute="user" method="POST">
+					<sf:form class="form-horizontal" id="registerForm" modelAttribute="user"
+						method="POST">
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="firstName">First Name: </label>
@@ -50,7 +51,7 @@
 								Number: </label>
 							<div class="col-md-8">
 								<sf:input type="number" path="contactNumber" id="contactNumber"
-									placeholder="Contact Number" class="form-control" />
+									placeholder="065896655" class="form-control" />
 								<sf:errors path="contactNumber" class="help-block" element="em" />
 							</div>
 						</div>
@@ -61,6 +62,16 @@
 								<sf:input type="password" path="password" id="password"
 									placeholder="Password" class="form-control" />
 								<sf:errors path="password" class="help-block" element="em" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-4" for="confirmPassword">Confirm
+								Password: </label>
+							<div class="col-md-8">
+								<sf:input type="password" path="confirmPassword" id="confirmPassword"
+									placeholder="Re-enter Password" class="form-control" />
+								<sf:errors path="confirmPassword" class="help-block" element="em" />
 							</div>
 						</div>
 

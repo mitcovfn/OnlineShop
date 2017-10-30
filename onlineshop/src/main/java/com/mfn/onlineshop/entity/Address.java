@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity(name = "address")
-public class Address implements Serializable{
+public class Address implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,43 +21,40 @@ public class Address implements Serializable{
 	private int id;
 
 	@Column(name = "address_line_one")
+	@NotBlank(message = "Please enter a Address Line!")
 	private String addressLineOne;
 
 	@Column(name = "address_line_two")
 	private String addressLineTwo;
 
+	@NotBlank(message = "Please enter a City!")
 	private String city;
+	@NotBlank(message = "Please enter a State!")
 	private String state;
+	@NotBlank(message = "Please enter a Country!")
 	private String country;
 
 	@Column(name = "postal_code")
+	@NotBlank(message = "Please enter a Postal Code!")
 	private String postalCode;
 
 	private boolean shipping;
 	private boolean billing;
-	
+
 	@ManyToOne
 	private User user;
 
-	
-	
 	public Address() {
 		super();
 	}
 
-	
-	
 	public User getUser() {
 		return user;
 	}
 
-
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-
 
 	public int getId() {
 		return id;
