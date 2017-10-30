@@ -10,10 +10,12 @@
 
 	<properties>
 		<spring.version>4.3.12.RELEASE</spring.version>
+		<spring.security>4.2.3.RELEASE</spring.security>
 		<junit.version>4.12</junit.version>
 		<mysql.version>5.1.44</mysql.version>
 		<hibernate.version>5.2.12.Final</hibernate.version>
 		<jackson.version>2.9.2</jackson.version>
+
 	</properties>
 
 	<dependencies>
@@ -138,6 +140,25 @@
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-webflow</artifactId>
 			<version>2.4.5.RELEASE</version>
+		</dependency>
+
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security}</version>
 		</dependency>
 
 	</dependencies>
