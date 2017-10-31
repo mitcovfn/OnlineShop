@@ -2,8 +2,10 @@ package com.mfn.onlineshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mfn.onlineshop.dao.CategoryDAO;
@@ -74,13 +76,13 @@ public class PageController {
 
 	@RequestMapping(value = "/show/{id}/product")
 	public ModelAndView showSingleProduct(@PathVariable("id") int id) throws ProductNotFoundException {
-		
+
 		ModelAndView mv = new ModelAndView("page");
 		Product product = productDAO.get(id);
 		if (product == null) {
 			throw new ProductNotFoundException();
 		}
-		
+
 		product.setViews(product.getViews() + 1);
 		// update the view count
 		productDAO.update(product);
@@ -91,4 +93,16 @@ public class PageController {
 
 		return mv;
 	}
+
+	@RequestMapping(value = "/login")
+	public ModelAndView login(@RequestParam(name="error", required = false) String error) {
+		ModelAndView mv = new ModelAndView("login");
+		if(error!=null) {
+			mv.addObject("message", "Invalid Username or Password");
+		}
+
+		mv.addObject("title", "Login");
+		return mv;
+	}
+
 }
