@@ -23,11 +23,11 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "first_name")
+	@Column(name = "first_name", length= 50)
 	@NotBlank(message = "Please enter a First Name!")
 	private String firstName;
 
-	@Column(name = "last_name")
+	@Column(name = "last_name", length= 50)
 	@NotBlank(message = "Please enter a Last Name!")
 	private String lastName;
 
@@ -40,6 +40,7 @@ public class User implements Serializable {
 	private String contactNumber;
 	private String role;
 
+	@Column(name = "password", length= 60)
 	@NotBlank(message = "Please enter a Password!")
 	private String password;
 	private boolean enabled = true;
