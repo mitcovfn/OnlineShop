@@ -129,34 +129,36 @@
 			<hr>
 		</div>
 		<div class="col-xs-12">
-			<div style="overflow: auto">
-				<table id="adminProductTable" class="table table-striped table-borderd">
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Active</th>
-							<th>Edit</th>
-						</tr>
-					</thead>
-					
-					<tfoot>
-						<tr>
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Active</th>
-							<th>Edit</th>
-						</tr>
-					</tfoot>
-				</table>
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table id="adminProductTable" class="table table-striped table-borderd">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Active</th>
+								<th>Edit</th>
+							</tr>
+						</thead>
+
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Active</th>
+								<th>Edit</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -173,8 +175,8 @@
 				</div>
 
 				<div class="modal-body">
-					<sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/manage/category"
-						method="POST" class="form-horizontal">
+					<sf:form id="categoryForm" modelAttribute="category"
+						action="${contextRoot}/manage/category" method="POST" class="form-horizontal">
 						<div class="form-group">
 							<label form="cat_name" class="control-label col-md-4">Category Name</label>
 							<div class="col-md-8">
@@ -193,7 +195,7 @@
 
 						<div class="form-group">
 							<div class="col-md-offset-4 col-md-8">
-								<input type="submit" value="Add Category" class="btn btn-primary"/>
+								<input type="submit" value="Add Category" class="btn btn-primary" />
 							</div>
 						</div>
 
