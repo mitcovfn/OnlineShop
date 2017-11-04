@@ -29,7 +29,7 @@ public class CartLine implements Serializable {
 	@Column(name = "buying_price")
 	private int buyingPrice;
 
-	public double getBuyingPrice() {
+	public int getBuyingPrice() {
 		return buyingPrice;
 	}
 
@@ -72,7 +72,7 @@ public class CartLine implements Serializable {
 		this.productCount = productCount;
 	}
 
-	public double getTotal() {
+	public int getTotal() {
 		return total;
 	}
 

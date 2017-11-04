@@ -38,7 +38,7 @@
 				</security:authorize>
 
 				<security:authorize access="isAuthenticated()">
-					<li class="dropdown" id="userModel">
+					<li class="dropdown" id="userCart">
 						<a class="btn btn-default" href="javascript:void(0)" id="dropdownMenu1"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 							${userModel.fullName}
