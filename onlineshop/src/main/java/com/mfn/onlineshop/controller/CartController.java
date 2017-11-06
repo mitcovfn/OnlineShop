@@ -27,9 +27,18 @@ public class CartController {
 				mv.addObject("message", "Cart has been updated!");
 				break;
 
+			case "added":
+				mv.addObject("message", "Product has been added!");
+				break;
+
 			case "deleted":
 				mv.addObject("message", "Product has been deleted!");
 				break;
+				
+			case "exist":
+				mv.addObject("message", "Product already exist in your cart!");
+				break;
+
 
 			case "error":
 				mv.addObject("message", "Something went wrong!");
@@ -55,6 +64,14 @@ public class CartController {
 	public String deleteCartLine(@PathVariable int cartLineId) {
 
 		String response = cartService.deleteCartLine(cartLineId);
+
+		return "redirect:/cart/show?" + response;
+	}
+
+	@RequestMapping("/add/{productId}/product")
+	public String addProductToCart(@PathVariable int productId) {
+
+		String response = cartService.addCartLine(productId);
 
 		return "redirect:/cart/show?" + response;
 	}

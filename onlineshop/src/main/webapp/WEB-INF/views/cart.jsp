@@ -67,7 +67,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#" class="btn btn-warning">
+							<a href="${contextRoot}/show/all/products" class="btn btn-warning">
 								<span class="glyphicon glyphicon-chevron-left"></span>
 								Continue Shopping
 							</a>
